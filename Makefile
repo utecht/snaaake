@@ -102,7 +102,8 @@ endif
 # Required for ldconfig or other tools that do not perform path expansion.
 ifeq ($(PLATFORM),PLATFORM_DESKTOP)
     ifeq ($(PLATFORM_OS),LINUX)
-        RAYLIB_PATH    = $(realpath $(RAYLIB_PATH))
+        RAYLIB_PREFIX ?= $(RAYLIB_PATH)
+        RAYLIB_PATH    = $(realpath $(RAYLIB_PREFIX))
     endif
 endif
 # Default path for raylib on Raspberry Pi, if installed in different path, update it!
